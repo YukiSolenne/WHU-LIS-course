@@ -7,14 +7,14 @@ from collections import Counter
 # ==========================================
 # 1. 读取数据
 # ==========================================
-file_name = 'raw.csv' # 你的新文件名
+file_name = 'raw.csv'
 try:
     df = pd.read_csv(file_name, encoding='utf-8')
 except:
     try:
         df = pd.read_csv(file_name, encoding='gbk')
     except:
-        print("❌ 读取失败，请检查文件路径")
+        print("读取失败")
 
 # 打印列名确认
 print("CSV 文件的列名：", list(df.columns))
@@ -23,7 +23,7 @@ print("CSV 文件的列名：", list(df.columns))
 # 2. 映射配置
 # ==========================================
 
-# LIS行为映射
+# 行为映射
 lis_map = {
     'I1': 'I1 需求表达', 'I2': 'I2 系统性能', 'I3': 'I3 交互策略',
     'I4': 'I4 信任质量', 'I5': 'I5 隐私安全', 'I6': 'I6 商业模式'
@@ -38,7 +38,6 @@ topic_map = {
 # E标签清洗逻辑 (提取 E1, E2...)
 def clean_emotion(text):
     text = str(text).strip()
-    # 如果包含 E1, E2 等关键词
     if 'E1' in text: return 'E1 情感投射型'
     if 'E2' in text: return 'E2 夸饰与依赖型'
     if 'E3' in text: return 'E3 冷静评价型'
@@ -92,11 +91,10 @@ for _, row in df.iterrows():
 # 4. 绘图 (针对新标签优化)
 # ==========================================
 
-# --- 图1：堆叠柱状图 (E1-E5 分布) ---
+# 图1：堆叠柱状图
 bar_df = pd.DataFrame(bar_data)
 pivot_df = bar_df.groupby(['lis', 'emo']).size().unstack(fill_value=0)
 
-# 确保列顺序好看
 desired_order = [
     'E1 情感投射型',
     'E3 冷静评价型',
@@ -146,7 +144,7 @@ bar = (
 )
 bar.render("1_功能情感堆叠图.html")
 
-# --- 图2：全链路桑基图 ---
+# 图2
 link_counts = Counter(sankey_links)
 nodes = [{"name": name} for name in set([x[0] for x in link_counts.keys()] + [x[1] for x in link_counts.keys()])]
 links_dict = [{"source": s, "target": t, "value": v} for (s, t), v in link_counts.items()]
@@ -172,8 +170,7 @@ sankey = (
 )
 sankey.render("2_全链路桑基图.html")
 
-# --- 图3 (加赠)：行为-体验热力图 ---
-# 这是一个新图，用来展示哪种行为最容易触发哪种体验
+# 图3
 heatmap_counts = Counter([(x[0], x[1]) for x in heatmap_data_list])
 hm_data = [[list(lis_map.values()).index(k[0]), desired_order.index(k[1]), v] for k, v in heatmap_counts.items()]
 
@@ -207,4 +204,5 @@ heatmap = (
 )
 heatmap.render("3_行为体验热力图.html")
 
-print("✅ 三张图表已生成！请查看 html 文件。")
+
+print("请查看同文件夹下的三个 html 文件")
