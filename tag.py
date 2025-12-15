@@ -19,9 +19,9 @@ BATCH_SIZE = 10
 
 # 本地 API 配置
 API_URL = "https://openrouter.ai/api/v1/chat/completions"  
-API_KEY = "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"  
+API_KEY = "sk-xxx" # (这里填入了我的openrouter私钥)  
 
-MODEL_NAME = "anthropic/claude-3.7-sonnet"  # 比如 "gpt-4.1-mini" / "qwen2.5-14b" / "lmstudio-xxx"
+MODEL_NAME = "anthropic/claude-3.7-sonnet" 
 
 # 是否在终端打印每次的模型输出
 DEBUG_PRINT_RESPONSE = True
@@ -171,7 +171,7 @@ def main():
         df[LABEL_COL] = df[LABEL_COL].astype(str)
         df[LABEL_COL] = df[LABEL_COL].replace('nan', '')
 
-    # 找出需要标注的行：文本非空且标签为空
+    # 找出需要标注的行
     mask_need = df[TEXT_COL].notna() & (df[LABEL_COL].isna() | (df[LABEL_COL] == ""))
     idx_list = df[mask_need].index.tolist()
 
@@ -226,3 +226,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
