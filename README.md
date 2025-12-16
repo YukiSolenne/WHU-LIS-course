@@ -1,7 +1,11 @@
 # WHU-LIS-course
-An exploratory study on affective interaction and information behavior in AI companionship scenarios. Originally developed for WHU-LIS "Information Analysis &amp; Visualization". Ongoing updates.
+An exploratory study on affective interaction and information behavior in AI companionship scenarios. Originally developed for WHU-LIS "Information Analysis &amp; Visualization".
 
-桑基图没有写到论文里，因为篇幅有点太长了。在论文里主要介绍的就是共现图和情感-行为图、主题-行为图，对应png和第一个、第三个html。
-数据和标签整理在raw.csv中，raw.labeled是tag.py在标注完之后产生的。
-tag.py差点忘记脱敏了，下次key还是不能代码内嵌……是调用Claude 3.7 Sonnet的代码。
-所有的代码都是使用Cursor写出来的。
+# AI陪伴关系中的行为-情感共现分析
+
+本项目为武汉大学《信息分析与可视化》课程结课作业，同时也是我在AI陪伴研究方向上的初步探索成果。论文和数据收集由本人独立完成，代码由prompt+Cursor完成，数据由人工+AI协同标注。
+
+在AI角色扮演产品中，用户与AI间的互动逐渐从工具使用走向陪伴关系的构建。本研究基于社交平台用户评论文本，通过扎根式标签构建、共现分析与可视化技术，探究行为与情感因素之间的共现模式，尝试揭示用户与AI关系建立过程中的信息系统特征、信任机制与情绪投射。
+
+如果你希望在课程、研究、二创或媒体中使用该项目内容，请通过 GitHub Issues或邮箱联系我获得许可。
+联系方式：wingress3055@gmail.com
