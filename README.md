@@ -4,6 +4,8 @@
 
 随着AI技术的发展和AI产品的普及，用户与AI间的互动逐渐从工具使用走向陪伴关系的构建。本研究基于社交平台用户有关AI陪伴、人机恋的评论文本，通过扎根式标签构建、共现分析与可视化技术，探究行为与情感因素之间的共现模式，思考用户与AI关系建立过程中的信息系统特征、信任机制与情绪投射路径。
 
+raw.xlsx中有五列对情感的标注，分别来自模型Claude 3.7 Sonnet、ChatGPT-4o、Gemini 2.5 flash、omnidimen-4b-emotion、Claude 4.5 Sonnet。第一列是手动校准过的结果。
+
 联系方式：elokuu_1028@qq.com
 
 # WHU-LIS-course 
