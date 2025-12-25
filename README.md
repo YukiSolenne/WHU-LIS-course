@@ -6,7 +6,3 @@
 
 
 联系方式：elokuu_1028@qq.com
-
-# WHU-LIS-course 
-
-An exploratory study on affective interaction and information behavior in AI companionship scenarios. Originally developed for WHU-LIS "Information Analysis &amp; Visualization".
